@@ -1,0 +1,164 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "monjyu"
+version = "0.1.0"
+description = "MONJYU - Academic Paper RAG System using Progressive GraphRAG"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [
+    {name = "MONJYU Team"}
+]
+keywords = ["rag", "graphrag", "academic", "papers", "nlp"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    # Document Processing
+    "unstructured[pdf,docx]>=0.16.0",
+    "python-docx>=1.1.0",
+    "python-pptx>=1.0.0",
+    "tiktoken>=0.8.0",
+    "langdetect>=1.0.9",
+    
+    # NLP
+    "spacy>=3.7.0",
+    "rake-nltk>=1.0.6",
+    
+    # Graph
+    "networkx>=3.2",
+    "leidenalg>=0.10.0",
+    "python-igraph>=0.11.0",
+    
+    # Vector Store
+    "lancedb>=0.14.0",
+    "pyarrow>=17.0.0",
+    
+    # Embedding & LLM (Local)
+    "ollama>=0.3.0",
+    
+    # CLI
+    "typer>=0.12.0",
+    "rich>=13.9.0",
+    
+    # MCP Server (Model Context Protocol)
+    "mcp[cli]>=1.2.0",
+    
+    # Utilities
+    "pydantic>=2.9.0",
+    "pydantic-settings>=2.5.0",
+    "pyyaml>=6.0.0",
+    "httpx>=0.27.0",
+    "tenacity>=9.0.0",
+    
+    # HTTP Client (async)
+    "aiohttp>=3.9.0",
+]
+
+[project.optional-dependencies]
+azure = [
+    "azure-ai-documentintelligence>=1.0.0",
+    "azure-search-documents>=11.6.0",
+    "openai>=1.50.0",
+]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+    "pytest-cov>=5.0.0",
+    "pytest-mock>=3.14.0",
+    "ruff>=0.7.0",
+    "mypy>=1.13.0",
+    "pre-commit>=4.0.0",
+]
+all = ["monjyu[azure,dev]"]
+
+[project.scripts]
+monjyu = "monjyu.cli:main"
+monjyu-mcp = "monjyu.mcp_server:run"
+
+[project.urls]
+Homepage = "https://github.com/your-org/monjyu"
+Documentation = "https://github.com/your-org/monjyu#readme"
+Repository = "https://github.com/your-org/monjyu.git"
+
+[tool.hatch.build.targets.wheel]
+packages = ["monjyu"]
+
+# === Ruff Configuration ===
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # Pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+    "ARG", # flake8-unused-arguments
+    "SIM", # flake8-simplify
+]
+ignore = [
+    "E501",  # line too long (handled by formatter)
+    "B008",  # do not perform function calls in argument defaults
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["monjyu"]
+
+# === Pytest Configuration ===
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = [
+    "-v",
+    "--tb=short",
+    "--strict-markers",
+]
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests",
+    "e2e: End-to-end tests",
+    "slow: Slow tests",
+]
+
+# === Coverage Configuration ===
+[tool.coverage.run]
+source = ["monjyu"]
+branch = true
+omit = [
+    "*/tests/*",
+    "*/__pycache__/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+]
+
+# === MyPy Configuration ===
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+ignore_missing_imports = true

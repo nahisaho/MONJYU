@@ -1,0 +1,114 @@
+# MUSUBI Project Configuration
+name: MONJYU
+description: Progressive GraphRAG - 約1/100のコストで高品質RAGを実現
+locale: ja
+version: "3.1.0"
+created: 2025-12-24
+last_updated: 2025-12-28
+
+# Technology Stack
+tech_stack:
+  approach: decided
+  languages:
+    - python: ">=3.10"
+  
+  # Core Dependencies
+  dependencies:
+    llm:
+      - openai: ">=1.0"
+      - tiktoken: ">=0.5"
+      - litellm: ">=1.0"
+    graph:
+      - networkx: ">=3.0"
+      - graspologic: ">=3.0"
+    data:
+      - pyarrow: ">=14.0"
+      - pandas: ">=2.0"
+      - pydantic: ">=2.0"
+    cli:
+      - typer: ">=0.9"
+      - rich: ">=13.0"
+    testing:
+      - pytest: ">=7.0"
+      - pytest-asyncio: ">=0.21"
+      - mypy: ">=1.5"
+      - ruff: ">=0.1"
+
+# Implementation Status
+implementation:
+  completed:
+    # Lazy Search
+    - lazy_search/search.py
+    - lazy_search/query_expander.py
+    - lazy_search/relevance_tester.py
+    - lazy_search/claim_extractor.py
+    - lazy_search/iterative_deepener.py
+    - lazy_search/context.py
+    - lazy_search/state.py
+    - lazy_search/core/*
+    - config/lazy_search_config.py
+    - prompts/lazy_search_system_prompt.py
+    # MONJYU Core
+    - monjyu/api/*
+    - monjyu/cli/*
+    - monjyu/controller/*
+    - monjyu/document/*
+    - monjyu/embedding/*
+    - monjyu/storage/*
+    - monjyu/graph/*
+    - monjyu/citation/*
+    - monjyu/index/level0/*
+    - monjyu/index/level1/*
+    - monjyu/query/*
+    - monjyu/nlp/*
+  pending:
+    - monjyu/index/level2-4
+    - Global/Local/DRIFT search深化
+  recent_updates:
+    - date: 2025-12-28
+      items:
+        - MCP Server HTTP transport追加
+        - MCP Server テスト拡充 (104 tests)
+        - E2Eテスト追加 (24 tests)
+        - ストリーミングテスト追加 (18 tests)
+        - カバレッジ向上テスト (全モジュール75%以上達成)
+        - test_mcp_handlers_coverage.py追加 (46 tests)
+        - test_relevance_tester_coverage.py追加 (29 tests)
+        - test_iterative_deepener_coverage.py追加 (31 tests)
+
+# Test Status (2025-12-28)
+tests:
+  total: 2417
+  passed: 2417
+  skipped: 5
+  failed: 0
+  categories:
+    unit: 2200+
+    integration: 165
+    e2e: 24
+  coverage:
+    overall: 83%
+    target: 80%
+    status: achieved
+    improved:
+      - module: monjyu/index/manager.py
+        before: 51%
+        after: 98%
+      - module: monjyu/mcp_server/server.py
+        before: 68%
+        after: 83%
+      - module: monjyu/mcp_server/handlers.py
+        before: 60%
+        after: 95%
+      - module: monjyu/lazy/relevance_tester.py
+        before: 59%
+        after: 100%
+      - module: monjyu/lazy/iterative_deepener.py
+        before: 59%
+        after: 98%
+      - module: monjyu/search/query_encoder.py
+        before: 49%
+        after: 84%
+      - module: monjyu/search/answer_synthesizer.py
+        before: 53%
+        after: 86%
