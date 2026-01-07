@@ -80,6 +80,30 @@ class MONJYUConfig:
         if isinstance(self.output_path, str):
             self.output_path = Path(self.output_path)
 
+    def __repr__(self) -> str:
+        """シークレットをマスクした文字列表現"""
+        return (
+            f"MONJYUConfig("
+            f"output_path={self.output_path!r}, "
+            f"environment={self.environment!r}, "
+            f"index_levels={self.index_levels!r}, "
+            f"default_search_mode={self.default_search_mode!r}, "
+            f"default_top_k={self.default_top_k!r}, "
+            f"chunk_size={self.chunk_size!r}, "
+            f"chunk_overlap={self.chunk_overlap!r}, "
+            f"llm_model={self.llm_model!r}, "
+            f"embedding_model={self.embedding_model!r}, "
+            f"ollama_base_url={self.ollama_base_url!r}, "
+            f"azure_openai_endpoint={self.azure_openai_endpoint!r}, "
+            f"azure_openai_api_key={'***' if self.azure_openai_api_key else None!r}, "
+            f"azure_search_endpoint={self.azure_search_endpoint!r}, "
+            f"azure_search_api_key={'***' if self.azure_search_api_key else None!r})"
+        )
+
+    def __str__(self) -> str:
+        """シークレットをマスクした文字列表現"""
+        return self.__repr__()
+
 
 @dataclass
 class MONJYUStatus:
