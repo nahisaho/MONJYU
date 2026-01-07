@@ -1,10 +1,13 @@
-# MONJYU アーキテクチャ設計書 v3.1
+# MONJYU アーキテクチャ設計書 v3.2
 
 **文書番号**: MONJYU-ARCH-003  
-**バージョン**: 3.1.0  
+**バージョン**: 3.2.0  
 **作成日**: 2025-12-27  
-**ステータス**: Approved  
-**準拠要件**: [01_requirements_v3.md](01_requirements_v3.md) v3.0.0 (Approved)
+**最終更新日**: 2026-01-07  
+**ステータス**: ✅ Approved (実装完了)  
+**準拠要件**: [01_requirements_v3.md](01_requirements_v3.md) v3.1.0 (Approved)
+
+**実装状況**: ✅ 2,417 tests passed | 83% coverage
 
 ---
 
@@ -771,13 +774,13 @@ MONJYU/
 │   ├── __init__.py
 │   └── lazy_search_system_prompt.py
 │
-├── tests/                          # 🧪 テスト (1268 tests)
+├── tests/                          # 🧪 テスト (2,417 tests)
 │   ├── __init__.py
 │   ├── conftest.py
 │   ├── mock_provider.py
-│   ├── unit/                       # ユニットテスト (1086)
+│   ├── unit/                       # ユニットテスト (2,200+)
 │   ├── integration/                # 統合テスト (165)
-│   ├── e2e/                        # E2Eテスト (17)
+│   ├── e2e/                        # E2Eテスト (24)
 │   └── benchmarks/
 │
 ├── specs/                          # 📋 仕様書
@@ -859,11 +862,20 @@ MONJYU/
 
 ---
 
-## 9. 次のステップ
+## 9. 実装状況
 
-1. **Level 2 (Eager) 実装** - Entity/Relationship Extraction 自動化
-2. **MCP Server 完成** - REQ-API-004 対応
-3. **Hybrid Search** - REQ-QRY-005 RRF 実装
+### ✅ 完了
+- **Level 0-1**: Baseline RAG + LazyGraphRAG
+- **MCP Server**: 7ツール・6リソース・5プロンプト (REQ-API-004)
+- **Citation Network**: 引用ネットワーク構築・分析
+- **Multiple Search Modes**: Vector, Lazy, Hybrid検索
+- **CLI**: Typer ベース (REQ-API-002)
+- **Python API**: async対応 (REQ-API-001)
+
+### 🔄 今後の拡張
+- Level 2-4 (Full GraphRAG) の必要に応じた実装
+- パフォーマンス最適化
+- Azure本番環境デプロイ
 
 ---
 
@@ -873,4 +885,4 @@ MONJYU/
 |-----------|------|---------|
 | 1.0.0 | 2025-12-24 | 初版（LazyGraphRAGベース） |
 | 3.0.0 | 2025-12-24 | 要件v3.0対応、学術論文特化、スケールアウト構成追加 |
-| 3.1.0 | 2025-12-27 | 実装反映 - ディレクトリ構造を実際のコード構成に更新、ステータスApproved |
+| 3.1.0 | 2025-12-27 | 実装反映 - ディレクトリ構造を実際のコード構成に更新、ステータスApproved || **3.2.0** | **2026-01-07** | **実装完了ステータス追加、テスト状況反映（2,417 tests / 83% coverage）、要件v3.1準拠** |

@@ -5,6 +5,21 @@ All notable changes to MONJYU will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.0] - 2026-01-07
+
+### Changed
+
+- **Specification Documents Updated** - All spec documents aligned with implementation
+  - Requirements v3.0 → v3.1 (実装ステータス追加)
+  - Architecture v3.1 → v3.2 (実装完了ステータス追加)
+  - Components v3.1 → v3.2 (32/32 コンポーネント100%実装完了)
+  - API v3.0 → v3.1 (全API実装完了ステータス追加)
+
+- **Steering Files Updated** - MUSUBI SDD format
+  - product.md, tech.md, structure.md 更新
+
+- **Test Status** - 2,417 tests / 83% coverage (2026-01-07時点)
+
 ## [3.4.0] - 2025-12-28
 
 ### Added

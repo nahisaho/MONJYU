@@ -43,7 +43,7 @@ MONJYU/
 │   ├── unit/                  # Unit Tests (2200+)
 │   ├── integration/           # Integration Tests (165)
 │   └── e2e/                   # E2E Tests (24)
-└── specs/                     # 仕様書 (v3.1)
+└── specs/                     # 仕様書 (v3.1/v3.2)
 \`\`\`
 
 ## 🚀 Quick Start
@@ -462,10 +462,10 @@ pytest tests/unit/test_incremental_index.py -v
 
 ## 📚 Documentation
 
-- [Requirements](specs/01_requirements_v3.md) - 機能要件 (v3.0 Approved)
-- [Architecture](specs/02_architecture_v3.md) - アーキテクチャ設計 (v3.1 Approved)
-- [Components](specs/03_components_v3.md) - コンポーネント仕様 (v3.1 Approved)
-- [API Reference](specs/04_api_v3.md) - API仕様 (v3.0 Approved)
+- [Requirements](specs/01_requirements_v3.md) - 機能要件 (v3.1 Approved)
+- [Architecture](specs/02_architecture_v3.md) - アーキテクチャ設計 (v3.2 Approved)
+- [Components](specs/03_components_v3.md) - コンポーネント仕様 (v3.2 Approved)
+- [API Reference](specs/04_api_v3.md) - API仕様 (v3.1 Approved)
 - [Directory Structure](specs/05_directory_structure_v3.md) - ディレクトリ構造
 
 ---
@@ -484,4 +484,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**MONJYU v3.3.0** | 2025-12-28 | 2,417 tests passed | 83% coverage
+**MONJYU v3.5.0** | 2026-01-07 | 2,417 tests passed | 83% coverage
