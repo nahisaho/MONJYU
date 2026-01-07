@@ -2,7 +2,7 @@
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Tests](https://img.shields.io/badge/tests-2417%20passed-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/tests-2489%20passed-brightgreen.svg)]()
 [![Coverage](https://img.shields.io/badge/coverage-83%25-brightgreen.svg)]()
 
 **MONJYU**は、学術論文に特化した**Progressive GraphRAG**システムです。
@@ -39,11 +39,21 @@ MONJYU/
 │   ├── mcp_server/            # MCP Server
 │   ├── observability/         # Metrics, Tracing
 │   └── storage/               # Parquet, Cache
-├── tests/                     # 2417 tests (80+ files)
-│   ├── unit/                  # Unit Tests (2200+)
-│   ├── integration/           # Integration Tests (165)
-│   └── e2e/                   # E2E Tests (24)
 └── specs/                     # 仕様書 (v3.1/v3.2)
+```
+
+## 🧪 Test Suite
+
+| Category | Tests | Description |
+|----------|-------|-------------|
+| Unit Tests | 2,200+ | ロジック検証 |
+| Integration Tests | 165 | API・DB連携 |
+| E2E Tests | 74 | ワークフロー |
+| Security Tests | 31 | OWASP Top 10, NFR-SEC |
+| Load Tests | 16 | 負荷・ストレス |
+| **Total** | **2,489** | **All Passed ✅** |
+
+**Coverage**: 83%
 \`\`\`
 
 ## 🚀 Quick Start
@@ -453,8 +463,10 @@ pytest tests/unit/test_incremental_index.py -v
 |----------|-------|--------|
 | Unit Tests | 2,200+ | ✅ |
 | Integration Tests | 165 | ✅ |
-| E2E Tests | 24 | ✅ |
-| **Total** | **2,417** | **✅ All Passed** |
+| E2E Tests | 74 | ✅ |
+| Security Tests | 31 | ✅ |
+| Load Tests | 16 | ✅ |
+| **Total** | **2,489** | **✅ All Passed** |
 
 **Coverage**: 83% (目標80%達成 ✅)
 
@@ -484,4 +496,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**MONJYU v3.5.0** | 2026-01-07 | 2,417 tests passed | 83% coverage
+**MONJYU v3.5.1** | 2026-01-07 | 2,489 tests passed | 83% coverage
