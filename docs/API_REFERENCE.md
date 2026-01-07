@@ -1,7 +1,7 @@
 # MONJYU API Reference
 
-**Last Updated**: 2025-12-28  
-**Version**: 3.3.0
+**Last Updated**: 2026-01-07  
+**Version**: 3.5.1
 
 ## Overview
 
@@ -12,6 +12,23 @@ MONJYU provides multiple layers of API for different use cases:
 | `MONJYU` Facade | Simple usage | High |
 | Controllers | Advanced control | Medium |
 | Query/Index modules | Custom pipelines | Low |
+| CLI | Command line usage | User |
+| MCP Server | Claude Desktop integration | External |
+
+---
+
+## Table of Contents
+
+1. [MONJYU Facade API](#1-monjyu-facade-api)
+2. [Search Modes](#2-search-modes)
+3. [Hybrid Search API](#3-hybrid-search-api)
+4. [Streaming API](#4-streaming-api)
+5. [Index API](#5-index-api)
+6. [Configuration](#6-configuration)
+7. [CLI Commands](#7-cli-commands)
+8. [MCP Server](#8-mcp-server)
+9. [Type Definitions](#9-type-definitions)
+10. [Error Handling](#10-error-handling)
 
 ---
 

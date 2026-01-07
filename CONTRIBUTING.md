@@ -41,7 +41,8 @@ MONJYU/
 ├── tests/
 │   ├── unit/                  # 単体テスト
 │   ├── integration/           # 統合テスト
-│   └── e2e/                   # E2Eテスト
+│   ├── e2e/                   # E2Eテスト
+│   └── benchmarks/            # 負荷テスト・ベンチマーク
 ├── specs/                     # 仕様書
 └── steering/                  # プロジェクトドキュメント
 ```
@@ -59,6 +60,12 @@ pytest tests/unit/
 
 # 統合テストのみ
 pytest tests/integration/
+
+# E2Eテストのみ
+pytest tests/e2e/
+
+# 負荷テストのみ
+pytest tests/benchmarks/
 
 # カバレッジ付き
 pytest --cov=monjyu --cov-report=html
