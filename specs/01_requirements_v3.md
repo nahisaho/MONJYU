@@ -1492,16 +1492,18 @@ external_apis:
 |----|------|------|------|
 | NFR-TST-001 | 単体テストカバレッジ | > 80% | ✅ 83% |
 | NFR-TST-002 | 統合テスト | 主要フロー網羅 | ✅ 165 tests |
-| NFR-TST-003 | E2Eテスト | ユーザーシナリオベース | ✅ 24 tests |
-| NFR-TST-004 | パフォーマンステスト | 負荷テスト・ストレステスト | ⏳ 計画中 |
+| NFR-TST-003 | E2Eテスト | ユーザーシナリオベース | ✅ 74 tests |
+| NFR-TST-004 | パフォーマンステスト | 負荷テスト・ストレステスト | ✅ 16 tests |
 | NFR-TST-005 | 回帰テスト | CI/CDパイプラインで自動実行 | ✅ 実装済み |
-| NFR-TST-006 | セキュリティテスト | 脆弱性スキャン | ⏳ 計画中 |
+| NFR-TST-006 | セキュリティテスト | 脆弱性スキャン | ✅ 31 tests |
 
 **現在のテスト状況** (2026-01-07):
-- **総テスト数**: 2,417 tests (80+ files)
+- **総テスト数**: 2,489 tests (80+ files)
 - **Unit Tests**: 2,200+ tests
 - **Integration Tests**: 165 tests
-- **E2E Tests**: 24 tests
+- **E2E Tests**: 74 tests
+- **Security Tests**: 31 tests (OWASP Top 10, NFR-SEC)
+- **Load Tests**: 16 tests
 - **カバレッジ**: 83%
 
 **テスト戦略**:

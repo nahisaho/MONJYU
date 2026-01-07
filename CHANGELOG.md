@@ -5,6 +5,49 @@ All notable changes to MONJYU will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.1] - 2026-01-07
+
+### Added
+
+- **Security Tests** - `tests/unit/test_security.py` (31 tests)
+  - OWASP Top 10 coverage (A01-A09)
+  - NFR-SEC-001~007 requirements coverage
+  - Input validation, secret management, path traversal
+  - Config validation, log security, dependency security
+  - Auth/authz, rate limiting, data encryption, injection prevention
+
+- **Load Tests** - `tests/benchmarks/test_load.py` (16 tests)
+  - Concurrent load testing (100 users)
+  - Throughput testing (1000+ rpm)
+  - Latency testing (p50/p95/p99)
+  - Stress testing (gradual increase, error recovery)
+  - Resource usage testing (memory, connection leak)
+
+- **E2E Workflow Tests** - `tests/e2e/test_workflow_e2e.py` (25 tests)
+  - Basic workflow (config, search mode, index level)
+  - Document workflow (loading, chunking, multi-doc)
+  - Search workflow (result structure, citations)
+  - Index state management (transitions, statistics)
+  - Integration workflow (full search, incremental index)
+
+### Fixed
+
+- **Security: API Key Exposure** - `monjyu/api/base.py`
+  - MONJYUConfig now masks API keys in `__repr__` and `__str__`
+  - `azure_openai_api_key` and `azure_search_api_key` display as `'***'`
+  - Compliance with NFR-SEC-005
+
+### Changed
+
+- **Test Status** - 2,489 tests (+72) / 83% coverage
+  - E2E Tests: 24 → 74 (+50)
+  - Security Tests: +31 (new)
+  - Load Tests: +16 (new)
+- **Requirements NFR-TST** - All test requirements now complete
+  - NFR-TST-003: ✅ 74 tests
+  - NFR-TST-004: ✅ 16 tests
+  - NFR-TST-006: ✅ 31 tests
+
 ## [3.5.0] - 2026-01-07
 
 ### Changed
