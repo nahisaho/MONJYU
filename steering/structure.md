@@ -29,7 +29,7 @@ MONJYU/
 ├── docs/                      # ドキュメント
 ├── config/                    # 設定ファイル
 ├── examples/                  # 使用例
-├── specs/                     # 仕様書 (v3.1)
+├── specs/                     # 仕様書 (v3.1/v3.2)
 ├── steering/                  # プロジェクトメモリ
 │   ├── rules/                 # 憲法・ルール
 │   ├── product.md             # プロダクトコンテキスト
